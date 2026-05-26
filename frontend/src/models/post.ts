@@ -22,9 +22,14 @@ interface Comment {
 
 interface Reaction {
   postId: string;
-  userId: { email: string } | string | any;
+  userId: { email: string } | string;
   type: "like" | "love" | "laugh" | "angry" | "sad";
   _id: string;
+}
+
+interface Bookmark {
+  _id?: string;
+  email: string;
 }
 
 export interface Post {
@@ -40,11 +45,14 @@ export interface Post {
   viewsCount: number;
   isPublished: boolean;
   isFeaturedPost: boolean;
+  isDeleted?: boolean;
+  deletedAt?: string;
   publishedAt: string;
   updatedBy: string;
   attachments: string[];
   comments: Comment[];
   reactions: Reaction[];
+  bookmarks?: Bookmark[];
   createdAt: string;
   updatedAt: string;
 }

@@ -2,6 +2,8 @@ import express from "express";
 import { UserController } from "./user.controller";
 import auth from "../../middleware/auth.middleware";
 import { ENUM_USER_ROLE } from "../../../enums/user";
+import validateRequest from "../../middleware/validate.request";
+import { UserValidator } from "./user.validation";
 
 const router = express.Router();
 
@@ -30,6 +32,7 @@ router.patch(
     ENUM_USER_ROLE.ADMIN,
     ENUM_USER_ROLE.SUPER_ADMIN
   ),
+  validateRequest(UserValidator.updateUser),
   UserController.updateUser
 );
 
@@ -52,6 +55,30 @@ router.post(
   "/approve-writer-application",
   auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.WRITER),
   UserController.approveWriterApplication
+);
+
+// Follow / Unfollow
+router.post(
+  "/follow/:authorId",
+  auth(
+    ENUM_USER_ROLE.USER,
+    ENUM_USER_ROLE.WRITER,
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.SUPER_ADMIN
+  ),
+  UserController.toggleFollow
+);
+
+// Get Follow Status
+router.get(
+  "/follow-status/:authorId",
+  auth(
+    ENUM_USER_ROLE.USER,
+    ENUM_USER_ROLE.WRITER,
+    ENUM_USER_ROLE.ADMIN,
+    ENUM_USER_ROLE.SUPER_ADMIN
+  ),
+  UserController.getFollowStatus
 );
 
 export const UserRouter = router;

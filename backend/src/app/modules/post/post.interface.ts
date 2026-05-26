@@ -21,11 +21,15 @@ export interface IPost extends IPostPayload {
   viewsCount: number;
   isPublished: boolean;
   isFeaturedPost?: boolean;
+  isDeleted?: boolean;
+  deletedAt?: Date;
+  deletedBy?: Types.ObjectId;
   publishedAt?: Date;
   updatedBy?: Types.ObjectId;
   attachments?: string[];
   comments?: Types.ObjectId[];
   reactions?: Types.ObjectId[];
+  bookmarks?: Types.ObjectId[];
 }
 
 export type PostModel = Model<IPost, object>;
@@ -36,5 +40,5 @@ export interface IPostSearchFields {
   tag?: string;
   trendingTopic?: string;
   sortFilter?: "mostPopular";
-  genres?: string[];
+  genres?: string | string[];
 }
