@@ -84,8 +84,8 @@ const NavListComponent: React.FC = () => {
   }, [close]);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/90 dark:bg-[#0B1120]/80 backdrop-blur-md border-b border-slate-200/70 dark:border-white/10 transition-colors duration-300">
-      <div className="relative z-10 mx-auto max-w-8xl px-5 py-4">
+    <header className="sticky top-0 z-50 w-full bg-white/90 supports-[backdrop-filter]:bg-white/75 dark:bg-[#0B1120]/80 dark:supports-[backdrop-filter]:bg-[#0B1120]/70 backdrop-blur-md border-b border-slate-200/70 dark:border-white/10 transition-colors duration-300 transform-gpu">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <div className="flex items-center shrink-0">
