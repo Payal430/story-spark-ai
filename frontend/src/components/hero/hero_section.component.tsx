@@ -301,13 +301,13 @@ const HeroSectionComponent = () => {
                   <i className="fas fa-sparkles text-gray-400"></i>
                 </div>
                 <Link to="/stories">
-                  <button className="relative !rounded-button bg-gradient-to-ber from-blue-900 via-emerald-800 to-blue-500 text-white font-medium px-6 py-2 mr-2 border border-white/20 transition-all duration-300 before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-500 before:via-blue-900 before:to-emerald-800 before:animate-border-gradient before:rounded-xl before:-z-10 before:blur-sm cursor-pointer">
+                  <button className="rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3.5 cursor-pointer mr-2 transition-all duration-300">
                     <i className="fa fa-wand-magic-sparkles mr-2"></i>Get
                     Started
                   </button>
                 </Link>
                 <Link to="/collab">
-                  <button className="relative !rounded-button bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium px-6 py-2 border border-white/20 transition-all duration-300 rounded-xl cursor-pointer">
+                  <button className="relative !rounded-button bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium px-8 py-3.5 border border-white/20 transition-all duration-300 rounded-xl cursor-pointer">
                     ✍️ Collab Mode
                   </button>
                 </Link>

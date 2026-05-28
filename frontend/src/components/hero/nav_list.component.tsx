@@ -112,7 +112,7 @@ const NavListComponent: React.FC = () => {
                     {isActive && (
                       <span className="w-1.5 h-1.5 bg-custom rounded-full mr-1.5 animate-pulse shadow-[0_0_8px_#3b82f6]" />
                     )}
-                    📊 ANALYTICS
+                     ANALYTICS
                   </>
                 )}
               </NavLink>
@@ -122,7 +122,7 @@ const NavListComponent: React.FC = () => {
                     {isActive && (
                       <span className="w-1.5 h-1.5 bg-custom rounded-full mr-1.5 animate-pulse shadow-[0_0_8px_#3b82f6]" />
                     )}
-                    ✍️ COLLAB
+                     COLLAB
                   </>
                 )}
               </NavLink>
@@ -188,12 +188,12 @@ const NavListComponent: React.FC = () => {
               ) : (
                 <>
                   <Link to="/login">
-                    <button className="text-slate-600 dark:text-slate-400 px-4 py-2 font-medium cursor-pointer rounded-md hover:bg-slate-200/60 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition-all duration-300">
+                    <button className="px-4 py-2 font-medium cursor-pointer rounded-md border border-slate-300 dark:border-slate-600 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 transition-all duration-300">
                       LOGIN
                     </button>
                   </Link>
                   <Link to="/signup">
-                    <button className="text-slate-600 dark:text-slate-400 px-4 py-2 font-medium cursor-pointer rounded-md hover:bg-slate-200/60 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white transition-all duration-300">
+                    <button className="px-4 py-2 font-medium cursor-pointer rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white transition-all duration-300">
                       SIGN UP
                     </button>
                   </Link>
