@@ -75,18 +75,12 @@ const SSInput = <T extends FieldValues>({
         <input
           type={inputType}
           id={name}
-
-
-
-          className={`w-full box-border pl-8 pr-10 py-1.5 text-base text-gray-900 dark:text-gray-200 bg-white dark:bg-slate-800 border rounded-md sm:text-sm transition-colors ${
+          className={`h-11 w-full max-w-[420px] pl-8 py-0 text-base leading-[2.75rem] text-gray-900 dark:text-gray-200 bg-white dark:bg-slate-800 border rounded-md sm:text-sm ${
             error
-              ? "border-red-500 outline-red-500 focus:outline-red-500"
-              : "border-gray-300 outline-gray-300 focus:outline-indigo-600 dark:border-slate-600 dark:focus:outline-indigo-500"
-
+              ? "border-red-500 outline-red-500"
+              : "border-gray-300 outline-gray-300 focus:outline-indigo-600"
           }`}
           placeholder={placeholder}
-
-
           autoComplete={autoComplete}
           {...register(name, validation)}
         />
