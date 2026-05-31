@@ -41,7 +41,7 @@ router.get(
 
 router.patch(
   "/featured/:postId",
-  auth(),
+  auth(ENUM_USER_ROLE.ADMIN, ENUM_USER_ROLE.SUPER_ADMIN),
   PostController.doFeaturedPosts
 );
 
