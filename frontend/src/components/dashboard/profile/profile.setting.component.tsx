@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import { User } from "../../../models/user";
-
+import ImageFallback from "../../ImageFallback";
+ImageFallback
 interface ProfileSettingComponentProps {
   user: User;
   onSave: (updatedUser: Partial<User>) => void;
@@ -19,9 +20,10 @@ export const ProfileSettingComponent = ({ user, onSave, loading }: ProfileSettin
       instagram: user.profile?.social?.instagram || "",
     },
   });
+  const [nameError, setNameError] = useState<string>("");
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
 
@@ -42,10 +44,18 @@ export const ProfileSettingComponent = ({ user, onSave, loading }: ProfileSettin
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+
+    const trimmedName = formData.name?.trim();
+    if (!trimmedName) {
+      setNameError("Full Name cannot be empty.");
+      return;
+    }
+
+    setNameError("");
     onSave({
-      name: formData.name,
+      name: trimmedName,
       profile: {
         bio: formData.bio,
         avatar: formData.avatar,
@@ -91,6 +101,11 @@ export const ProfileSettingComponent = ({ user, onSave, loading }: ProfileSettin
                       onChange={handleChange}
                       className={inputClassName}
                     />
+                    {nameError && (
+                      <p className="mt-2 text-sm text-rose-600 dark:text-rose-400">
+                        {nameError}
+                      </p>
+                    )}
                   </div>
 
                   <div className="min-w-0">
@@ -109,6 +124,32 @@ export const ProfileSettingComponent = ({ user, onSave, loading }: ProfileSettin
                       className={`${inputClassName} cursor-not-allowed`}
                       disabled={true}
                     />
+                  </div>
+
+                  <div className="md:col-span-2">
+                    <label
+                      htmlFor="avatar"
+                      className="block text-sm font-medium text-gray-400 mb-1"
+                    >
+                      Avatar URL
+                    </label>
+                    <input
+                      type="url"
+                      id="avatar"
+                      name="avatar"
+                      value={formData.avatar}
+                      onChange={handleChange}
+                      className={inputClassName}
+                    />
+                    {formData.avatar && (
+                      <div className="mt-2">
+                        <ImageFallback
+                          src={formData.avatar}
+                          alt="Profile preview"
+                          className="h-16 w-16 rounded-full object-cover"
+                        />
+                      </div>
+                    )}
                   </div>
 
                   <div className="md:col-span-2">
