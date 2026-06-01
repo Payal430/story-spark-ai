@@ -101,7 +101,6 @@ const router = createBrowserRouter([
       { path: "forgot-password", element: <ForgotPasswordComponent /> },
       { path: "pricing", element: <PricingComponent /> },
       { path: "post/:id", element: <PostDetailsComponent /> },
-      { path: "help", element: <HelpCenterComponent /> },
       { path: "contact-us", element: <Contact /> },
       { path: "about-us", element: <AboutUsComponent /> },
       { path: "career", element: <CareerComponent /> },
@@ -172,10 +171,15 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <DashboardComponent /> },
           { path: "profile", element: <ProfileComponent /> },
-          { path: "writers", element: <WriterApplicationComponent /> },
-          { path: "users", element: <UserComponent /> },
           {
-            element: <ProtectedRoute allowedRoles={[USER_ROLE.USER, USER_ROLE.WRITER]} />,
+            element: <ProtectedRoute allowedRoles={ELEVATED_ADMIN_ROLES} />,
+            children: [
+              { path: "writers", element: <WriterApplicationComponent /> },
+              { path: "users", element: <UserComponent /> },
+            ],
+          },
+          {
+            element: <ProtectedRoute allowedRoles={ALL_ROLES} />,
             children: [
               { path: "settings", element: <SettingComponent /> },
               { path: "published-stories", element: <PublishedStoriesComponent /> },
