@@ -377,3 +377,15 @@ Thanks to everyone who has helped build **Story Spark AI**. This grid updates au
 
 Thank you for contributing to our open-source project! We appreciate your support 🚀 <br>
 Don't forget to leave a star ⭐
+
+
+## 🌐 Home Page Feature Overview
+
+The Home Page serves as the central hub of Story-Spark-AI. Below is a breakdown of its core UI elements and features:
+
+- **Hero Banner & CTA Buttons:** The primary landing section designed to introduce users to the platform with direct call-to-action buttons.
+- **StorySparkAI v2.0 Live Announcement Badge:** Highlights the latest version features and platform updates.
+- **Feature Cards:** Highlights key functionalities including *Infinite Variations*, *AI Co-Writer*, and *Community Driven* features.
+- **Featured Posts Section:** Displays curated or top-performing user stories.
+- **Trending Topics / Hashtag Discovery:** Allows users to explore popular content categories and discover active discussions.
+- **Cookie Consent Modal:** Manages user privacy preferences regarding Essential, Functional, and Analytics cookies.
