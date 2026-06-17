@@ -43,7 +43,7 @@ const SSInput = <T extends FieldValues>({
     <div className="w-full max-w-full flex flex-col box-border">
       <label 
         htmlFor={name} 
-        className="block text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-2 text-left"
+        className="block text-xs font-semibold text-slate-700 dark:text-slate-200 uppercase tracking-wider mb-2 text-left"
       >
         {label} {required && <span className="text-rose-500">*</span>}
       </label>
@@ -58,7 +58,7 @@ const SSInput = <T extends FieldValues>({
         <input
           type={inputType}
           id={name}
-          className={`block w-full max-w-full box-border pl-8 pr-10 py-1.5 text-base text-gray-900 dark:text-gray-200 placeholder:text-gray-500 dark:placeholder:text-gray-400 bg-white dark:bg-slate-800 border rounded-md sm:text-sm ${
+          className={`block w-full min-w-0 max-w-full box-border pl-8 pr-10 py-1.5 text-base text-gray-900 dark:text-gray-200 placeholder:text-gray-500 dark:placeholder:text-gray-400 bg-white dark:bg-slate-800 border rounded-md sm:text-sm ${
             error
               ? "border-red-500"
               : "border-gray-300 focus:outline-indigo-600 focus:ring-1 focus:ring-indigo-600"
